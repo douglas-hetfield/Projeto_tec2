@@ -13,7 +13,7 @@
 					</span>
 
                     <div class="wrap-input100 validate-input" data-validate = "Digite seu nome">
-						<input class="input100" type="text" name="name" placeholder="Nome">
+						<input class="input100" type="text" id="name" name="name" placeholder="Nome">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user-circle" aria-hidden="true"></i>
@@ -21,7 +21,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "digite um E-mail valido: ex@abc.xyz">
-						<input class="input100" type="email" name="email" placeholder="Email">
+						<input class="input100" type="email" id="email" name="email" placeholder="Email">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>

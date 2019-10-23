@@ -20,5 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="view/css/util.css">
 	<link rel="stylesheet" type="text/css" href="view/css/main.css">
 <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="view/css/style.css">
+
 </head>
 <body>

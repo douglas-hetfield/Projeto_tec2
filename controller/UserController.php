@@ -3,44 +3,48 @@
         header("Location:../index.php");
     }
     $action = htmlspecialchars($_POST['action']);
+    $name       = "";
+    $email      = "";
+    $pws        = "";
+    $hasCookie  = false;
 
-    $_POST['name']?     $name   = htmlspecialchars($_POST['name']) : $name = null; 
-    $_POST['email']?    $email  = htmlspecialchars($_POST['email']) : $email = null; 
-    $_POST['password']? $pws    = htmlspecialchars($_POST['password']) : $pws = null; 
+    if(isset($_POST['name'])){      $name       = htmlspecialchars($_POST['name']);     } 
+    if(isset($_POST['email'])){     $email      = htmlspecialchars($_POST['email']);    } 
+    if(isset($_POST['pass'])){      $pws        = htmlspecialchars($_POST['pass']);     } 
+    if(empty($_POST['hasCookie'])){  $hasCookie = false; } else { $hasCookie = true;    }
+ 
 
     if($action == "store"){
-        if(is_null(validaCadastro())){
-            store();
-        }else{
-            echo "tratar esse retorno";
-        }
+        store($name, $pws, $email);
     }
 
     if($action == "login"){
-        login();
+        login($email, $pws, $hasCookie);
     }
 
-    function validaCadastro(){
-        $erros = null;
-        if ($name == ""){
-            $erros .= "Nome em branco. <br>";
-        }
-        if ($email == ""){
-            $erros .= "E-mail em branco. <br>";
-        }
-        if ($pws == ""){
-            $erros .= "Senha em branco. <br>";
-        }
-        return $erros;
+    
+
+
+    function store($name, $pws, $email){
+        var_dump($email);
+        die();
     }
 
+    function login($email, $pws, $hasCookie){
+        include_once "../model/User.php";
+        include_once "../DAO/UserDAO.php";
+        $user = new User();
 
-    function store(){
-        
-    }
+        $user->setEmail($email);
+        $user->setPws($pws);
 
-    function login(){
+        $userDao = new UserDAO();
 
+        $request = $userDao->buscarLogin($user->getEmail(), $user->getPws());
+
+
+        var_dump($request);
+        die(); 
     }
     
 ?>

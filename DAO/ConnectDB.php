@@ -3,9 +3,9 @@ ini_set('display_errors' ,1);
 class Conecta {
    public function getConection(){
         $dsn = 'mysql:host=localhost;port=3306';
-        $banco = 'dbname=myProject';
+        $banco = 'dbname=myproject';
         $usuario = 'root';
-        $senha = 'ycloud2137';
+        $senha = '';
     // Conectando PDO
         try {
             $pdo = new PDO($dsn.';'.$banco, $usuario, $senha);
@@ -20,7 +20,7 @@ class Conecta {
     // Conexão de banco de dados sem Objetos e Classes
     public function conectaBD(){
         $db = mysql_connect("localhost", "root", "") or die (mysql_error());
-        $conn = mysql_select_db ("phpLoja", $db) or die (mysql_error());
+        $conn = mysql_select_db ("myProject", $db) or die (mysql_error());
         if ($conn){
             return true;
         }else{

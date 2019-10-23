@@ -8,6 +8,5 @@
 		include_once "view/login.php";
 	}
 
-
 	include_once "include/footer.php";
 ?>

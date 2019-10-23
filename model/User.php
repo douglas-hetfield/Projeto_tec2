@@ -1,6 +1,6 @@
 <?php
-    class Cliente {
-        private $idCliente;
+    class User {
+        private $idUser;
         private $nome;
         private $email;
         private $pws;
@@ -32,6 +32,20 @@
         }
         public function getIDCliente(){
             return $this->idCliente;
+        }
+
+        function valida(){
+            $erros = null;
+            if ($name == ""){
+                $erros .= "Nome em branco. <br>";
+            }
+            if ($email == ""){
+                $erros .= "E-mail em branco. <br>";
+            }
+            if ($pws == ""){
+                $erros .= "Senha em branco. <br>";
+            }
+            return $erros;
         }
     }
     
