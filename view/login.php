@@ -30,13 +30,12 @@
 					<div class="text-center">
 						<input  type="checkbox" id="hasCookie" name="hasCookie">
 						<label for="hasCookie">Manter conectado</label>
+						<br>
+ 						<button class="glow-on-hover" type="submit">Salvar</button>
 					</div>
 					
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Entrar
-						</button>
-					</div>
+					
+					
 
 					<div class="text-center p-t-136">
 						<a class="txt2" href="index.php?url=signUp">

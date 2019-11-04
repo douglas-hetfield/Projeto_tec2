@@ -1,15 +1,20 @@
 <?php
 ini_set('display_errors' ,1);
 class UserDAO {
-    public function salvar(Cliente $cliente) {
+    public function salvar(User $user) {
+        $pwsCrypt = md5(crypt($user->getEmail(),$user->getPws()));
+        var_dump($user->getNome());
+        var_dump($pwsCrypt);
+        die();
+
         require_once 'ConnectDB.php';
         try {
             $con = new Conecta();
             $sql = "INSERT INTO users (nome, email, pws, created_at) VALUES (:nome,:email, :pw1, :created_at)";
             $stmt = $con->getConection()->prepare($sql);
-            $stmt->bindParam(":nome",$cliente->getNome());
-            $stmt->bindParam(":email",$cliente->getEmail());
-            $stmt->bindParam(":pw1",crypt($cliente->getEmail(),$cliente->getPw1()));
+            $stmt->bindParam(":nome",$user->getNome());
+            $stmt->bindParam(":email",$user->getEmail());
+            $stmt->bindParam(":pw1",crypt($user->getEmail(),$user->getPws()));
             $stmt->bindParam(":created_at",date("Y-m-d"));
             
             $stmt->execute();
@@ -32,7 +37,8 @@ class UserDAO {
     }
     public function buscarLogin($email, $pw1) {
         $pwsCrypt = md5(crypt($email,$pw1));
-
+        var_dump($email);
+        var_dump($pwsCrypt);
         die();
 
         require_once 'ConnectDB.php';
@@ -44,7 +50,7 @@ class UserDAO {
             $stmt->bindParam(":pw1", $pwsCrypt);
             $stmt->execute();
             $dados = $stmt->fetch(PDO::FETCH_BOTH); 
-            return $dados["nome"];
+            return $dados["name"];
         } catch (PDOException $exc){
             echo "Erros de:". $exc->getMessage();
         }
