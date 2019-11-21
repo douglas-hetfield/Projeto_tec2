@@ -1,7 +1,7 @@
 <?php
     class User {
         private $idUser;
-        private $nome;
+        private $name;
         private $email;
         private $pws;
 
@@ -20,11 +20,11 @@
             return $this->pws;
         }
 
-        public function setNome ($nome){
-            $this->nome = $nome;
+        public function setName ($name){
+            $this->name = $name;
         }
-        public function getNome (){
-            return $this->nome;
+        public function getName (){
+            return $this->name;
         }
         
         public function setIDCliente($id){

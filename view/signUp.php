@@ -1,3 +1,8 @@
+<?php
+	if(isset($_GET['error']) && $_GET['error'] == true){
+		echo "<script>alert('Erro ao cadastrar, entre em contato com o administrador do sistema.')</script>";
+	}
+?>
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -46,3 +51,4 @@
 			</div>
 		</div>
 	</div>
+	

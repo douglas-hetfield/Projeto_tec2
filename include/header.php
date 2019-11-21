@@ -22,5 +22,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="view/css/style.css">
 
+	<link rel="stylesheet" type="text/css" href="view/css/myStyle.css">
+
 </head>
 <body>

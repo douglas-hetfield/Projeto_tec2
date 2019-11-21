@@ -29,16 +29,20 @@
 
         $user = new User();
 
-        $user->setNome($name);
+        $user->setName($name);
         $user->setEmail($email);
         $user->setPws($pws);
 
         $userDao = new UserDAO();
-
         $request = $userDao->salvar($user);
-
-        var_dump($email);
-        die();
+        if($request == true){
+            session_start();
+            $_SESSION['email'] = $user->getEmail();
+            $_SESSION['name']  = $user->getName();
+            header("Location: ../index.php?url=dashboard&authentication=true");
+        }else{
+            header("Location: ../index.php?url=signUp&error=true");
+        }
     }
 
     function login($email, $pws, $hasCookie){
